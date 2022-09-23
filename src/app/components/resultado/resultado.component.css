@@ -1,0 +1,41 @@
+.imagenCiudad {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mat-card-header{
+    background-color:rgb(208, 208, 208) ;
+    padding-top: 10px;
+    align-items: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+
+  .mat-card{
+    padding:0 ;
+  }
+  
+  .mat-card-content{
+    padding:10px ;
+  }
+
+  p {
+    display: inline-flex;
+    vertical-align: middle;
+  }
+
+  p mat-icon{
+    transform: scale(0.92);
+  }
+
+  a {
+    font-weight: 500;
+  }
+
+  .centrarImagen{
+    display: inline-flex;
+    vertical-align: middle;
+  }
+  

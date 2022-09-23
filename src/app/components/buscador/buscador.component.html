@@ -1,0 +1,11 @@
+<div class="container" fxLayoutAlign="center center">
+    <div fxLayout="column">
+        <input type="text" placeholder="Introduzca ciudad..." [formControl]="nombreCiudadPatron" [(ngModel)]="nombreCiudad">
+        <mat-error *ngIf="nombreCiudadPatron.hasError('pattern')">
+            Solo letras no especiales por favor
+        </mat-error>
+    </div>
+        <div class="botonBuscar" (click)="buscarCiudad(nombreCiudad)">
+            <mat-icon>search</mat-icon>
+        </div>  
+</div>

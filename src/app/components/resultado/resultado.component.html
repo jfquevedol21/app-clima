@@ -1,0 +1,80 @@
+<div fxLayout="column" fxLayoutGap="2%" style="margin-top: 2%">
+
+    <mat-card *ngIf="getCiudad()">
+        <mat-card-header>
+            <mat-card-title>Información de la ciudad</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div fxLayout="row" fxLayoutAlign="space-around center">
+                <div fxLayout="column">
+                    <img src="https://www.seekpng.com/png/detail/76-761306_modern-city-buildings-city-png-icon.png"
+                        class="imagenCiudad">
+                </div>
+                <div fxLayout="column">
+                    <p>
+                        <mat-icon>work</mat-icon> <a>Ciudad: &nbsp;</a> {{getCiudad().name}}
+                    </p>
+                    <p>
+                        <mat-icon>language</mat-icon> <a>País: &nbsp;</a> {{getCiudad().country}}
+                    </p>
+                    <p>
+                        <mat-icon>store</mat-icon> <a>Estado: &nbsp;</a> {{getCiudad().state}}
+                    </p>
+                </div>
+                <div fxLayout="column">
+                    <div fxLayout="column">
+                        <p>
+                            <mat-icon>flag</mat-icon> <a>Latitud: &nbsp;</a> {{getCiudad().lat}}
+                        </p>
+                        <p>
+                            <mat-icon>gps_fixed</mat-icon> <a>Longitud: &nbsp;</a> {{getCiudad().lon}}
+                        </p>
+                        <p>
+                            &nbsp;&nbsp;
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+
+    </mat-card>
+
+    <div fxLayout="row" *ngIf="getClimaCiudad()" fxLayoutGap="1%">
+        <div fxFlex style="width: 20%;" *ngFor="let clima of getClimaCiudad()">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{clima.dt_txt | date:'short'}}</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div fxLayout="column">
+                        <div fxFlex="row" fxLayoutAlign="center center">
+                            <img [src]="'https://openweathermap.org/img/wn/'+clima.weather[0].icon+'@2x.png'">
+                            <h1><a>{{clima.weather[0].main | uppercase}}</a></h1>
+                        </div>
+                        <div fxFlex="row" fxLayoutAlign="space-around">
+                            <p><mat-icon>device_thermostat</mat-icon><a>&nbsp;Temperatura:&nbsp;</a></p>
+                            <p>{{clima.main.temp}} C°</p>
+                        </div>
+                        <div fxFlex="row" fxLayoutAlign="space-around">
+                            <p><mat-icon>filter_drama</mat-icon><a>&nbsp;Sensación:&nbsp;</a></p>
+                            <p>{{clima.main.feels_like}} C°</p>
+                        </div>
+                        <div fxFlex="row" fxLayoutAlign="space-around">
+                            <p><mat-icon>grain</mat-icon><a>&nbsp;Humedad:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+                            <p>{{clima.main.humidity}} %</p>
+                        </div>
+                        <div fxFlex="row" fxLayoutAlign="space-around">
+                            <p><mat-icon>hiking</mat-icon><a>&nbsp;Altura:&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+                            <p>{{clima.main.sea_level}} msnm</p>
+                        </div>
+                        <div fxFlex="row" fxLayoutAlign="space-around">
+                            <p><mat-icon>bookmark</mat-icon><a>&nbsp;Descripción:&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
+                            <p>{{clima.weather[0].description}} </p>
+                        </div>
+                    </div>
+                </mat-card-content>
+
+            </mat-card>
+        </div>
+    </div>
+</div>
