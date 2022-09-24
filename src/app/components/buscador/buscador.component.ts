@@ -10,7 +10,7 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class BuscadorComponent implements OnInit {
 
-  nombreCiudadPatron = new FormControl('', [Validators.pattern('^[A-Za-zñÑ]+$')]);
+  nombreCiudadPatron = new FormControl('', [Validators.pattern('^[a-zA-Z ]*$')]);
 
   nombreCiudad!: string;
   ciudadConsultada!: Ciudad;
